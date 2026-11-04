@@ -55,7 +55,6 @@ void register_user::save_user_data(QString account_login, QString account_passwo
 
 void register_user::send_data_credentials(register_credentials data_user) {
     authenfication::auth_minecraft_server *auth_server = new authenfication::auth_minecraft_server(data_user.login_nickname, data_user.password_account);
-    qDebug() << "register try";
 
     QObject::connect(auth_server, &authenfication::auth_minecraft_server::auth_success, this, [this, auth_server, data_user] () {
         QMessageBox::information(this, "Авторизация", "Авторизация успешна");
